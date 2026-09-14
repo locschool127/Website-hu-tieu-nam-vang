@@ -64,33 +64,62 @@
         height: var(--header-height);
     }
 
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+    }
+
     .brand-icon {
-        width: 38px;
-        height: 38px;
-        font-size: 1.25rem;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 1.2rem;
         border-radius: 10px;
+        flex-shrink: 0;
+    }
+
+    .brand-text {
+        min-width: 0;
     }
 
     .brand-text h1 {
-        font-size: 1.05rem;
+        font-size: clamp(0.82rem, 3.6vw, 1rem);
+        line-height: 1.15;
+        letter-spacing: -0.3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
-    .brand-text span {
-        font-size: 0.65rem;
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
     }
 
     .mobile-toggle {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
         border-radius: 8px;
         background: var(--bg-alt);
         border: 1px solid var(--border-color);
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         color: var(--dark);
-        margin-left: 6px;
     }
 
     .nav-menu {

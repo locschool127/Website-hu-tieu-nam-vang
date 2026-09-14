@@ -25,11 +25,23 @@ function initRestaurantInfo() {
 
     // Cập nhật Tên quán
     const brandElements = document.querySelectorAll('.dynamic-brand-name');
-    brandElements.forEach(el => el.textContent = RESTAURANT_INFO.name);
+    brandElements.forEach(el => {
+        if (RESTAURANT_INFO.name.toUpperCase().includes("THIÊN LỘC")) {
+            el.innerHTML = `HỦ TIẾU NAM VANG <span class="brand-highlight">THIÊN LỘC</span>`;
+        } else {
+            el.textContent = RESTAURANT_INFO.name;
+        }
+    });
 
     // Cập nhật Slogan
     const sloganElements = document.querySelectorAll('.dynamic-slogan');
-    sloganElements.forEach(el => el.textContent = RESTAURANT_INFO.slogan);
+    sloganElements.forEach(el => {
+        if (!RESTAURANT_INFO.slogan) {
+            el.style.display = 'none';
+        } else {
+            el.textContent = RESTAURANT_INFO.slogan;
+        }
+    });
 
     // Cập nhật Hotline
     const hotlineElements = document.querySelectorAll('.dynamic-hotline');

@@ -5,7 +5,7 @@
 
 const RESTAURANT_INFO = {
     name: "HỦ TIẾU NAM VANG THIÊN LỘC",
-    slogan: "Đậm Đà Vị Xưa - Tròn Vị Tinh Hoa Ẩm Thực",
+    slogan: "",
     hotline: "090.3782.190",
     zalo: "0903782190",
     address: "376 Tân Hòa Đông, Phường Bình Trị Đông, Thành Phố Hồ Chí Minh",
