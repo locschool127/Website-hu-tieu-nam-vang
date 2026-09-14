@@ -398,12 +398,30 @@ function initEventListeners() {
     document.getElementById('checkoutForm')?.addEventListener('submit', (e) => handleOrderSubmit(e, false));
     document.getElementById('orderZaloBtn')?.addEventListener('click', (e) => handleOrderSubmit(e, true));
 
-    // Mobile menu toggle
+    // Mobile menu toggle & Auto close
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
     if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navMenu.classList.toggle('active');
+            mobileToggle.textContent = isOpen ? '✕' : '☰';
+        });
+
+        // Tự động đóng menu khi bấm vào bất kỳ link điều hướng nào
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            });
+        });
+
+        // Đóng menu khi bấm ra ngoài vùng menu
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && e.target !== mobileToggle) {
+                navMenu.classList.remove('active');
+                mobileToggle.textContent = '☰';
+            }
         });
     }
 
